@@ -48,7 +48,7 @@ const App = () => {
   // Ping backend to check connection
   const checkBackendConnection = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/ping");
+      const res = await axios.get("https://mini-python-ide.onrender.com/ping");
       if (res.status === 200) {
         setConnected(true);
         term.current.writeln("✅ Connected to backend.");
@@ -71,7 +71,7 @@ const handleRun = async () => {
   printToTerminal("⏳ Running your code...");
 
   try {
-    const res = await axios.post("http://localhost:5000/execute", {
+    const res = await axios.post("https://mini-python-ide.onrender.com/execute", {
       code,
       input,
     });
